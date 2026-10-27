@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ejemplo.alquiler.controller.NotificacionesController" spacing="16">
+  <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="edge-to-edge" prefWidth="450" minWidth="450" maxWidth="450">
+    <VBox>
+      <padding><Insets top="4" right="6" bottom="12" left="4"/></padding>
+      <VBox styleClass="card" spacing="10">
+        <Label text="Avisos por correo a clientes" styleClass="section"/>
+        <CheckBox fx:id="chkActivo" text="Enviar avisos a los clientes"/>
+        <Label text="Cuando está activado, los clientes con correo registrado reciben un mensaje en cada uno de estos casos:" wrapText="true" styleClass="hint"/>
+        <CheckBox fx:id="chkReserva" text="Reserva creada o cancelada" selected="true"/>
+        <CheckBox fx:id="chkPago" text="Pago registrado" selected="true"/>
+        <CheckBox fx:id="chkRecordatorio" text="Recordatorio de devolución (el día antes y el mismo día)" selected="true"/>
+        <CheckBox fx:id="chkMora" text="Retraso o saldo pendiente (se repite cada 3 días)" selected="true"/>
+
+        <Label text="Correo de salida" styleClass="subsection"/>
+        <Label text="Gmail: servidor smtp.gmail.com, puerto 587, seguridad STARTTLS, y como contraseña una «contraseña de aplicación» (Cuenta de Google → Seguridad → Verificación en 2 pasos → Contraseñas de aplicaciones). Outlook: smtp.office365.com, puerto 587." wrapText="true" styleClass="hint"/>
+        <GridPane hgap="8" vgap="8">
+          <columnConstraints>
+            <ColumnConstraints minWidth="124" prefWidth="124"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+          </columnConstraints>
+          <Label text="Servidor" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtHost" promptText="smtp.gmail.com" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+          <Label text="Puerto" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtPuerto" promptText="587" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+          <Label text="Seguridad" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+          <ComboBox fx:id="cbSeguridad" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+          <Label text="Usuario" styleClass="form-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtUsuario" promptText="tucorreo@gmail.com" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+          <Label text="Contraseña" styleClass="form-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+          <PasswordField fx:id="txtClave" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+          <Label text="Nombre remitente" styleClass="form-label" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtRemitenteNombre" promptText="(opcional) Ej.: RentaPro" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+          <Label text="Correo remitente" styleClass="form-label" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtRemitenteCorreo" promptText="(opcional) si es distinto del usuario" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <Label text="Datos de tu empresa en el mensaje" styleClass="subsection"/>
+        <GridPane hgap="8" vgap="8">
+          <columnConstraints>
+            <ColumnConstraints minWidth="124" prefWidth="124"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+          </columnConstraints>
+          <Label text="Empresa" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtEmpresa" promptText="RentaPro" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+          <Label text="Teléfono" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtTelefono" promptText="(opcional) aparece al pie del correo" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <Button text="Guardar configuración" onAction="#guardar" styleClass="primary" maxWidth="Infinity"/>
+
+        <Label text="Probar el envío" styleClass="subsection"/>
+        <HBox spacing="8">
+          <TextField fx:id="txtPrueba" promptText="correo donde recibirás la prueba" HBox.hgrow="ALWAYS"/>
+          <Button fx:id="btnProbar" text="Enviar prueba" onAction="#probar" styleClass="secondary"/>
+        </HBox>
+        <Label text="La prueba usa los datos que ves en el formulario, aunque todavía no los hayas guardado." wrapText="true" styleClass="hint"/>
+      </VBox>
+    </VBox>
+  </ScrollPane>
+
+  <VBox spacing="10" HBox.hgrow="ALWAYS">
+    <HBox spacing="10" alignment="CENTER_LEFT">
+      <Label text="Historial de avisos" styleClass="section"/>
+      <Label fx:id="lblResumen" styleClass="hint"/>
+      <Region HBox.hgrow="ALWAYS"/>
+      <Button text="Actualizar" onAction="#actualizarHistorial" styleClass="secondary"/>
+      <Button fx:id="btnAvisosAhora" text="Enviar avisos pendientes ahora" onAction="#enviarAvisosAhora" styleClass="primary"/>
+    </HBox>
+    <Label fx:id="lblMensaje" styleClass="banner, banner-info" wrapText="true" maxWidth="Infinity" visible="false" managed="false"/>
+    <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+      <placeholder><Label text="Todavía no se envió ningún aviso." styleClass="hint"/></placeholder>
+      <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+      <columns>
+        <TableColumn fx:id="colFecha" text="Fecha" prefWidth="120"/>
+        <TableColumn fx:id="colCliente" text="Cliente" prefWidth="160"/>
+        <TableColumn fx:id="colCorreo" text="Correo" prefWidth="170"/>
+        <TableColumn fx:id="colTipo" text="Aviso" prefWidth="150"/>
+        <TableColumn fx:id="colEstado" text="Estado" prefWidth="95"/>
+        <TableColumn fx:id="colDetalle" text="Detalle" prefWidth="220"/>
+      </columns>
+    </TableView>
+    <Label text="Los recordatorios y avisos de retraso se envían solos mientras RentaPro esté abierto (se revisa cada 30 minutos). Cada aviso se envía una sola vez; los de retraso y saldo se repiten cada 3 días." wrapText="true" styleClass="hint"/>
+  </VBox>
+</HBox>

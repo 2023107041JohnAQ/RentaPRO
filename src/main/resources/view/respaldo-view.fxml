@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ejemplo.alquiler.controller.RespaldoController" spacing="16">
+  <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+  <VBox styleClass="card" spacing="12" prefWidth="400" minWidth="400" maxWidth="400">
+    <Label text="Respaldo de tus datos" styleClass="section"/>
+    <Label text="Todos tus datos (vehículos, clientes, reservas, contratos y pagos) están en un solo archivo. Un respaldo es una copia de ese archivo para poder recuperarlo si algo sale mal." wrapText="true" styleClass="hint"/>
+    <Label fx:id="lblUltimo" wrapText="true" styleClass="total-label"/>
+    <Label text="Cada día, al abrir RentaPro, se crea un respaldo automático y se conservan los últimos 15." wrapText="true" styleClass="hint"/>
+
+    <Button fx:id="btnCrear" text="Crear respaldo ahora" onAction="#crearAhora" styleClass="primary" maxWidth="Infinity"/>
+    <Button fx:id="btnCopia" text="Guardar copia en... (USB, escritorio)" onAction="#guardarCopia" styleClass="secondary" maxWidth="Infinity"/>
+    <Button text="Abrir carpeta de respaldos" onAction="#abrirCarpeta" styleClass="secondary" maxWidth="Infinity"/>
+
+    <Label text="Restaurar" styleClass="subsection"/>
+    <Label text="Elige un respaldo de la lista y pulsa «Restaurar el seleccionado», o busca un archivo .db guardado en otro lugar." wrapText="true" styleClass="hint"/>
+    <Button fx:id="btnRestaurar" text="Restaurar el seleccionado" onAction="#restaurarSeleccionado" styleClass="danger" maxWidth="Infinity"/>
+    <Button text="Restaurar desde un archivo..." onAction="#restaurarDesdeArchivo" styleClass="secondary" maxWidth="Infinity"/>
+
+    <Label text="Carpeta de respaldos:" styleClass="form-label"/>
+    <Label fx:id="lblCarpeta" wrapText="true" styleClass="hint"/>
+    <Label text="Consejo: copia de vez en cuando un respaldo a un USB o a tu nube. Así, si se daña la computadora, tus datos siguen a salvo. Las fotos de los vehículos están en la carpeta RentaPro/imagenes y no forman parte del respaldo." wrapText="true" styleClass="hint"/>
+  </VBox>
+
+  <VBox spacing="10" HBox.hgrow="ALWAYS">
+    <Label text="Respaldos guardados" styleClass="section"/>
+    <Label fx:id="lblMensaje" styleClass="banner, banner-info" wrapText="true" maxWidth="Infinity" visible="false" managed="false"/>
+    <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+      <placeholder><Label text="Todavía no hay respaldos." styleClass="hint"/></placeholder>
+      <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+      <columns>
+        <TableColumn fx:id="colFecha" text="Fecha" prefWidth="150"/>
+        <TableColumn fx:id="colTipo" text="Tipo" prefWidth="90"/>
+        <TableColumn fx:id="colTamano" text="Tamaño" prefWidth="90"/>
+        <TableColumn fx:id="colArchivo" text="Archivo" prefWidth="260"/>
+      </columns>
+    </TableView>
+  </VBox>
+</HBox>

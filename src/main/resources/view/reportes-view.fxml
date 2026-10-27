@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ejemplo.alquiler.controller.ReportesController"
+            fitToWidth="true" styleClass="edge-to-edge">
+  <VBox spacing="14">
+    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+    <HBox styleClass="searchbar" spacing="14" alignment="BOTTOM_LEFT">
+      <VBox spacing="4">
+        <Label text="Desde" styleClass="search-label"/>
+        <DatePicker fx:id="dpDesde" prefWidth="160"/>
+      </VBox>
+      <VBox spacing="4">
+        <Label text="Hasta" styleClass="search-label"/>
+        <DatePicker fx:id="dpHasta" prefWidth="160"/>
+      </VBox>
+      <Button text="Generar reporte" onAction="#generar" styleClass="accent"/>
+      <Region HBox.hgrow="ALWAYS"/>
+      <Button text="Este mes" onAction="#esteMes" styleClass="secondary"/>
+      <Button text="Mes anterior" onAction="#mesAnterior" styleClass="secondary"/>
+      <Button text="Últimos 30 días" onAction="#ultimos30" styleClass="secondary"/>
+      <Button text="Este año" onAction="#esteAnio" styleClass="secondary"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+      <Label fx:id="lblPeriodo" styleClass="hint"/>
+      <Region HBox.hgrow="ALWAYS"/>
+      <Button text="Exportar a Excel (CSV)" onAction="#exportar" styleClass="primary"/>
+    </HBox>
+    <Label fx:id="lblMensaje" styleClass="banner, banner-alerta" wrapText="true" maxWidth="Infinity" visible="false" managed="false"/>
+
+    <HBox spacing="12">
+      <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS" maxWidth="Infinity"><Label fx:id="lblIngresos" text="-" styleClass="stat-value"/><Label text="Ingresos cobrados" styleClass="stat-label"/></VBox>
+      <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS" maxWidth="Infinity"><Label fx:id="lblAlquileres" text="-" styleClass="stat-value"/><Label text="Alquileres" styleClass="stat-label"/></VBox>
+      <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS" maxWidth="Infinity"><Label fx:id="lblOcupacion" text="-" styleClass="stat-value"/><Label text="Ocupación de la flota" styleClass="stat-label"/></VBox>
+      <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS" maxWidth="Infinity"><Label fx:id="lblTicket" text="-" styleClass="stat-value"/><Label text="Ticket promedio" styleClass="stat-label"/></VBox>
+      <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS" maxWidth="Infinity"><Label fx:id="lblRecargos" text="-" styleClass="stat-value"/><Label text="Recargos por retraso" styleClass="stat-label"/></VBox>
+      <VBox styleClass="stat-tile" HBox.hgrow="ALWAYS" maxWidth="Infinity"><Label fx:id="lblPorCobrar" text="-" styleClass="stat-value"/><Label text="Por cobrar" styleClass="stat-label"/></VBox>
+    </HBox>
+
+    <VBox styleClass="card" spacing="6">
+      <Label text="Ingresos cobrados por mes (últimos 6 meses)" styleClass="section"/>
+      <BarChart fx:id="grafico" legendVisible="false" animated="false" categoryGap="22" minHeight="240" prefHeight="240">
+        <xAxis><CategoryAxis/></xAxis>
+        <yAxis><NumberAxis/></yAxis>
+      </BarChart>
+    </VBox>
+
+    <Label text="Rentabilidad por vehículo (en el periodo)" styleClass="section"/>
+    <TableView fx:id="tablaVehiculos" minHeight="250" prefHeight="250">
+      <placeholder><Label text="No hay vehículos para mostrar." styleClass="hint"/></placeholder>
+      <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+      <columns>
+        <TableColumn fx:id="colVeh" text="Vehículo" prefWidth="240"/>
+        <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+        <TableColumn fx:id="colReservas" text="Reservas" prefWidth="80"/>
+        <TableColumn fx:id="colDias" text="Días alquilados" prefWidth="110"/>
+        <TableColumn fx:id="colOcup" text="Ocupación" prefWidth="90"/>
+        <TableColumn fx:id="colFact" text="Facturado" prefWidth="110"/>
+      </columns>
+    </TableView>
+
+    <Label text="Clientes con retraso en la devolución (hoy)" styleClass="section"/>
+    <TableView fx:id="tablaMora" minHeight="190" prefHeight="190">
+      <placeholder><Label text="Ningún cliente en mora. ¡Todo al día!" styleClass="hint"/></placeholder>
+      <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+      <columns>
+        <TableColumn fx:id="colMoCliente" text="Cliente" prefWidth="170"/>
+        <TableColumn fx:id="colMoTel" text="Teléfono" prefWidth="100"/>
+        <TableColumn fx:id="colMoVeh" text="Vehículo" prefWidth="200"/>
+        <TableColumn fx:id="colMoDias" text="Retraso" prefWidth="90"/>
+        <TableColumn fx:id="colMoRecargo" text="Recargo" prefWidth="95"/>
+        <TableColumn fx:id="colMoSaldo" text="Saldo" prefWidth="95"/>
+      </columns>
+    </TableView>
+    <Label text="Ingresos cobrados = pagos recibidos en el periodo (los reembolsos restan). Facturado = alquiler + recargo de las reservas que empiezan en el periodo, sin las canceladas. La ocupación cuenta los días reales en que cada vehículo estuvo alquilado." wrapText="true" styleClass="hint"/>
+  </VBox>
+</ScrollPane>

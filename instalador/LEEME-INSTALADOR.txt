@@ -1,0 +1,30 @@
+CREAR EL INSTALADOR DE RENTAPRO (Windows)
+=========================================
+
+Con esto RentaPro se abre con doble clic, sin IntelliJ ni Maven, y se puede
+copiar a otra computadora (esa computadora NO necesita tener Java instalado).
+
+OPCION A - Carpeta lista para usar (la mas facil)
+  1. En la Terminal de IntelliJ, dentro del proyecto, escribe:
+         instalador\crear-instalador.bat
+  2. Espera unos minutos. Al terminar queda la carpeta:
+         instalador\salida\RentaPro
+  3. Abre  instalador\salida\RentaPro\RentaPro.exe
+  4. Para llevarla a otra PC, copia la carpeta RentaPro completa (por ejemplo a
+     un USB) y crea un acceso directo a RentaPro.exe en el escritorio.
+
+OPCION B - Instalador (.exe) con acceso directo y menu Inicio
+  1. Instala WiX Toolset 3 (gratis): https://github.com/wixtoolset/wix3/releases
+  2. Cierra y vuelve a abrir IntelliJ para que reconozca WiX.
+  3. En la Terminal de IntelliJ escribe:
+         instalador\crear-instalador.bat exe
+  4. El instalador queda en  instalador\salida\RentaPro-1.0.0.exe
+
+NOTAS
+  - Tus datos NO se pierden al actualizar: viven en tu carpeta de usuario
+    (rentapro.db y la carpeta RentaPro), fuera del programa.
+  - Si dice "No se encontro jpackage": usa el JDK 17 (el de IntelliJ) o define
+    la variable JAVA_HOME apuntando a el.
+  - Es normal ver el aviso "Unsupported JavaFX configuration" al abrir; no afecta.
+  - Si Windows muestra "SmartScreen", pulsa "Mas informacion" y "Ejecutar de
+    todas formas": el programa no esta firmado digitalmente.

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ejemplo.alquiler.controller.MantenimientoController" spacing="16">
+  <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="edge-to-edge" prefWidth="390" minWidth="390" maxWidth="390">
+    <VBox>
+      <padding><Insets top="4" right="6" bottom="12" left="4"/></padding>
+      <VBox styleClass="card" spacing="10">
+        <Label fx:id="tituloForm" text="Registrar documento o servicio" styleClass="section"/>
+        <Label text="Anota el SOAT, la revisión técnica, el seguro o un servicio (aceite, frenos...). Si indicas el vencimiento, RentaPro te avisa antes de que venza." wrapText="true" styleClass="hint"/>
+        <GridPane hgap="8" vgap="8">
+          <columnConstraints>
+            <ColumnConstraints minWidth="104" prefWidth="104"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+          </columnConstraints>
+          <Label text="Vehículo" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+          <ComboBox fx:id="cbVehiculo" promptText="Selecciona" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+          <Label text="Qué es" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+          <ComboBox fx:id="cbTipo" editable="true" promptText="SOAT, aceite..." maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+          <Label text="Emitido / hecho" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+          <DatePicker fx:id="dpFecha" maxWidth="Infinity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+          <Label text="Vence el" styleClass="form-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+          <DatePicker fx:id="dpVencimiento" promptText="(opcional)" maxWidth="Infinity" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+          <Label text="Kilometraje" styleClass="form-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtKm" promptText="(opcional)" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+          <Label text="Costo (S/)" styleClass="form-label" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtCosto" promptText="(opcional)" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+          <Label text="Notas" styleClass="form-label" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+          <TextField fx:id="txtNotas" promptText="(opcional) taller, póliza..." GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+        </GridPane>
+        <HBox spacing="8">
+          <Button text="Guardar" onAction="#guardar" styleClass="primary"/>
+          <Button text="Nuevo" onAction="#nuevo" styleClass="secondary"/>
+          <Button text="Eliminar" onAction="#eliminar" styleClass="danger"/>
+        </HBox>
+        <Label text="Al renovar un documento, registra uno nuevo con la nueva fecha: el anterior pasa solo a «RENOVADO» y deja de dar alertas." wrapText="true" styleClass="hint"/>
+      </VBox>
+    </VBox>
+  </ScrollPane>
+
+  <VBox spacing="10" HBox.hgrow="ALWAYS">
+    <HBox spacing="10" alignment="CENTER_LEFT">
+      <Label text="Documentos y servicios" styleClass="section"/>
+      <Region HBox.hgrow="ALWAYS"/>
+      <CheckBox fx:id="chkSoloAlertas" text="Solo vencidos y por vencer"/>
+    </HBox>
+    <Label fx:id="lblAlertas" styleClass="banner, banner-info" wrapText="true" maxWidth="Infinity"/>
+    <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+      <placeholder><Label text="Todavía no registraste documentos ni servicios. Empieza con el SOAT de tus vehículos." styleClass="hint"/></placeholder>
+      <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+      <columns>
+        <TableColumn fx:id="colVehiculo" text="Vehículo" prefWidth="170"/>
+        <TableColumn fx:id="colTipo" text="Qué es" prefWidth="120"/>
+        <TableColumn fx:id="colFecha" text="Emitido" prefWidth="85"/>
+        <TableColumn fx:id="colVence" text="Vence" prefWidth="85"/>
+        <TableColumn fx:id="colEstado" text="Estado" prefWidth="105"/>
+        <TableColumn fx:id="colDias" text="Plazo" prefWidth="150"/>
+        <TableColumn fx:id="colKm" text="Km" prefWidth="80"/>
+        <TableColumn fx:id="colCosto" text="Costo" prefWidth="80"/>
+        <TableColumn fx:id="colNotas" text="Notas" prefWidth="130"/>
+      </columns>
+    </TableView>
+    <Label text="Haz clic en una fila para editarla. Los vehículos inactivos no generan alertas." styleClass="hint"/>
+  </VBox>
+</HBox>

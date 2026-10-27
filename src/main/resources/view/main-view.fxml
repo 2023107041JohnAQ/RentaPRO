@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ejemplo.alquiler.controller.MainController"
+            styleClass="root" prefWidth="1220" prefHeight="800">
+
+  <fx:define>
+    <ToggleGroup fx:id="grupoMenu"/>
+  </fx:define>
+
+  <left>
+    <VBox styleClass="sidebar" spacing="6" prefWidth="236" minWidth="236" maxWidth="236">
+      <HBox alignment="CENTER_LEFT" spacing="0">
+        <Label text="Renta" styleClass="brand"/>
+        <Label text="Pro" styleClass="brand, brand-accent"/>
+      </HBox>
+      <Label text="Alquiler de vehículos y motos" styleClass="brand-sub"/>
+      <Label text="MENÚ" styleClass="nav-section"/>
+
+      <ToggleButton text="Vehículos y motos" toggleGroup="$grupoMenu" selected="true" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></StackPane></graphic>
+      </ToggleButton>
+      <ToggleButton text="Clientes" toggleGroup="$grupoMenu" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></StackPane></graphic>
+      </ToggleButton>
+      <ToggleButton text="Reservas" toggleGroup="$grupoMenu" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></StackPane></graphic>
+      </ToggleButton>
+      <ToggleButton text="Contrato PDF" toggleGroup="$grupoMenu" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></StackPane></graphic>
+      </ToggleButton>
+      <ToggleButton text="Devolución y pagos" toggleGroup="$grupoMenu" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/></StackPane></graphic>
+      </ToggleButton>
+
+      <Label text="GESTIÓN" styleClass="nav-section"/>
+      <ToggleButton text="Notificaciones" toggleGroup="$grupoMenu" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></StackPane></graphic>
+      </ToggleButton>
+      <ToggleButton text="Reportes" toggleGroup="$grupoMenu" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></StackPane></graphic>
+      </ToggleButton>
+      <ToggleButton text="Mantenimiento" toggleGroup="$grupoMenu" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></StackPane></graphic>
+      </ToggleButton>
+      <Label text="SISTEMA" styleClass="nav-section"/>
+      <ToggleButton text="Respaldos" toggleGroup="$grupoMenu" styleClass="nav-btn" maxWidth="Infinity" onAction="#irAPestana">
+        <graphic><StackPane minWidth="26" prefWidth="26" maxWidth="26"><SVGPath styleClass="nav-icon" content="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></StackPane></graphic>
+      </ToggleButton>
+
+      <Region VBox.vgrow="ALWAYS"/>
+      <Label text="RentaPro v6" styleClass="nav-footer"/>
+    </VBox>
+  </left>
+
+  <center>
+   <BorderPane>
+    <top>
+      <HBox styleClass="topbar" alignment="CENTER_LEFT" spacing="12">
+        <padding><Insets top="14" right="24" bottom="14" left="24"/></padding>
+        <VBox spacing="2">
+          <Label fx:id="lblPagina" text="Vehículos y motos" styleClass="page-title"/>
+          <Label text="Gestión de flota y alquileres" styleClass="page-sub"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <VBox styleClass="kpi" alignment="CENTER"><Label fx:id="kpiFlota" text="0" styleClass="kpi-value"/><Label text="En flota" styleClass="kpi-label"/></VBox>
+        <VBox styleClass="kpi" alignment="CENTER"><Label fx:id="kpiDisponibles" text="0" styleClass="kpi-value"/><Label text="Libres hoy" styleClass="kpi-label"/></VBox>
+        <VBox styleClass="kpi" alignment="CENTER"><Label fx:id="kpiActivas" text="0" styleClass="kpi-value"/><Label text="Activas" styleClass="kpi-label"/></VBox>
+        <VBox styleClass="kpi" alignment="CENTER"><Label fx:id="kpiPorCobrar" text="S/ 0.00" styleClass="kpi-value"/><Label text="Por cobrar" styleClass="kpi-label"/></VBox>
+        <VBox styleClass="kpi" alignment="CENTER"><Label fx:id="kpiIngresos" text="S/ 0.00" styleClass="kpi-value"/><Label text="Cobrado" styleClass="kpi-label"/></VBox>
+        <VBox styleClass="kpi" alignment="CENTER"><Label fx:id="kpiAlertas" text="0" styleClass="kpi-value"/><Label text="Alertas" styleClass="kpi-label"/></VBox>
+      </HBox>
+    </top>
+    <center>
+    <TabPane fx:id="tabs" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+
+        <Tab text="Vehículos y motos">
+          <HBox spacing="16">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+            <VBox styleClass="card" spacing="10" prefWidth="350" minWidth="350" maxWidth="350">
+              <Label fx:id="tituloFormVehiculo" text="Registrar vehículo o moto" styleClass="section"/>
+              <StackPane fx:id="fotoPreview" styleClass="foto-box" minHeight="150" prefHeight="150"/>
+              <HBox spacing="8">
+                <Button text="Seleccionar imagen..." onAction="#elegirImagen" styleClass="secondary"/>
+                <Button text="Quitar" onAction="#quitarImagen" styleClass="secondary"/>
+              </HBox>
+              <GridPane hgap="8" vgap="8">
+                <columnConstraints>
+                  <ColumnConstraints minWidth="124" prefWidth="124"/>
+                  <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="Placa / código" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="placa" promptText="ABC-123" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Marca" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="marca" promptText="Toyota, Honda..." GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Modelo" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="modelo" promptText="Hilux, CB190R..." GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Tipo" styleClass="form-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cbTipo" promptText="Selecciona el tipo" maxWidth="Infinity" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Tarifa diaria (S/)" styleClass="form-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="tarifa" promptText="120.00" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+              </GridPane>
+              <CheckBox fx:id="chkActivo" text="Disponible para alquiler" selected="true"/>
+              <HBox spacing="8">
+                <Button fx:id="btnGuardarVehiculo" text="Guardar" onAction="#guardarVehiculo" styleClass="primary"/>
+                <Button text="Nuevo" onAction="#nuevoVehiculo" styleClass="secondary"/>
+                <Button text="Eliminar" onAction="#eliminarVehiculo" styleClass="danger"/>
+              </HBox>
+            </VBox>
+
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+              <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Flota registrada" styleClass="section"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="buscarVehiculo" promptText="Buscar por placa, marca, modelo o tipo" prefWidth="320"/>
+              </HBox>
+              <TableView fx:id="tablaVehiculos" VBox.vgrow="ALWAYS">
+                <placeholder><Label text="Aún no hay vehículos. Registra el primero con el formulario de la izquierda." styleClass="hint"/></placeholder>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                <columns>
+                  <TableColumn fx:id="colFoto" text="Foto" prefWidth="92"/>
+                  <TableColumn fx:id="colPlaca" text="Placa / código" prefWidth="120"/>
+                  <TableColumn fx:id="colVehiculo" text="Marca y modelo" prefWidth="200"/>
+                  <TableColumn fx:id="colTipo" text="Tipo" prefWidth="110"/>
+                  <TableColumn fx:id="colTarifa" text="Tarifa diaria" prefWidth="110"/>
+                  <TableColumn fx:id="colActivo" text="Estado" prefWidth="100"/>
+                </columns>
+              </TableView>
+              <Label text="Haz clic en una fila para editar ese vehículo o cambiarle la foto." styleClass="hint"/>
+            </VBox>
+          </HBox>
+        </Tab>
+
+        <Tab text="Clientes">
+          <HBox spacing="16">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+            <VBox styleClass="card" spacing="10" prefWidth="350" minWidth="350" maxWidth="350">
+              <Label fx:id="tituloFormCliente" text="Registrar cliente" styleClass="section"/>
+              <GridPane hgap="8" vgap="8">
+                <columnConstraints>
+                  <ColumnConstraints minWidth="124" prefWidth="124"/>
+                  <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="DNI / RUC" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="documento" promptText="8 u 11 dígitos" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Nombres" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="nombres" promptText="Nombre o razón social" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Teléfono" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="telefono" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Correo" styleClass="form-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="correo" promptText="(opcional)" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Dirección" styleClass="form-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="direccion" promptText="(opcional, va en el contrato)" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label text="N° licencia" styleClass="form-label" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="licencia" promptText="(opcional, va en el contrato)" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+              </GridPane>
+              <HBox spacing="8">
+                <Button fx:id="btnGuardarCliente" text="Guardar" onAction="#guardarCliente" styleClass="primary"/>
+                <Button text="Nuevo" onAction="#nuevoCliente" styleClass="secondary"/>
+                <Button text="Eliminar" onAction="#eliminarCliente" styleClass="danger"/>
+              </HBox>
+            </VBox>
+
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+              <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Clientes registrados" styleClass="section"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="buscarCliente" promptText="Buscar por documento, nombre, teléfono o correo" prefWidth="340"/>
+              </HBox>
+              <TableView fx:id="tablaClientes" VBox.vgrow="ALWAYS">
+                <placeholder><Label text="Aún no hay clientes. Registra el primero con el formulario de la izquierda." styleClass="hint"/></placeholder>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                <columns>
+                  <TableColumn fx:id="colDocumento" text="Documento" prefWidth="130"/>
+                  <TableColumn fx:id="colCliente" text="Cliente" prefWidth="260"/>
+                  <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="140"/>
+                  <TableColumn fx:id="colCorreo" text="Correo" prefWidth="220"/>
+                </columns>
+              </TableView>
+              <Label text="Haz clic en una fila para editar al cliente." styleClass="hint"/>
+            </VBox>
+          </HBox>
+        </Tab>
+
+        <Tab text="Disponibilidad y reservas">
+          <ScrollPane fitToWidth="true" styleClass="edge-to-edge">
+            <VBox spacing="12">
+              <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+              <Label text="1. Consulta qué vehículos y motos están libres" styleClass="section"/>
+              <HBox styleClass="searchbar" spacing="16" alignment="BOTTOM_LEFT">
+                <VBox spacing="4">
+                  <Label text="Desde" styleClass="search-label"/>
+                  <DatePicker fx:id="inicioDisponibilidad" prefWidth="175"/>
+                </VBox>
+                <VBox spacing="4">
+                  <Label text="Hasta" styleClass="search-label"/>
+                  <DatePicker fx:id="finDisponibilidad" prefWidth="175"/>
+                </VBox>
+                <Button text="Buscar disponibles" onAction="#comprobarDisponibilidad" styleClass="accent"/>
+                <Label fx:id="lblDisponibles" styleClass="search-hint"/>
+              </HBox>
+              <ScrollPane fitToHeight="true" hbarPolicy="AS_NEEDED" vbarPolicy="NEVER" minHeight="272" prefHeight="272" styleClass="edge-to-edge">
+                <HBox fx:id="panelDisponibles" spacing="12">
+                  <padding><Insets top="4" right="4" bottom="8" left="4"/></padding>
+                </HBox>
+              </ScrollPane>
+              <Label text="Haz clic en una tarjeta para elegir ese vehículo en la reserva." styleClass="hint"/>
+
+              <Label text="2. Crea la reserva" styleClass="section"/>
+              <VBox styleClass="card" spacing="10">
+                <GridPane hgap="10" vgap="8">
+                  <columnConstraints>
+                    <ColumnConstraints minWidth="70"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints minWidth="70"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                  </columnConstraints>
+                  <Label text="Vehículo" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                  <ComboBox fx:id="vehiculoReserva" promptText="Selecciona un vehículo o moto" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                  <Label text="Cliente" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                  <ComboBox fx:id="clienteReserva" promptText="Selecciona un cliente" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                  <Label text="Inicio" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                  <DatePicker fx:id="inicioReserva" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                  <Label text="Fin" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                  <DatePicker fx:id="finReserva" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                </GridPane>
+                <HBox spacing="14" alignment="CENTER_LEFT">
+                  <Label fx:id="lblTotalReserva" text="Total estimado: -" styleClass="total-label"/>
+                  <Region HBox.hgrow="ALWAYS"/>
+                  <Button text="Crear reserva" onAction="#crearReserva" styleClass="primary"/>
+                </HBox>
+              </VBox>
+
+              <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Reservas registradas" styleClass="section"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Cancelar reserva seleccionada" onAction="#cancelarReserva" styleClass="danger"/>
+              </HBox>
+              <TableView fx:id="tablaReservas" minHeight="230" prefHeight="230">
+                <placeholder><Label text="Todavía no hay reservas. Consulta la disponibilidad y crea la primera." styleClass="hint"/></placeholder>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                <columns>
+                  <TableColumn fx:id="colReservaNro" text="N°" prefWidth="55"/>
+                  <TableColumn fx:id="colReservaCliente" text="Cliente" prefWidth="170"/>
+                  <TableColumn fx:id="colReservaVehiculo" text="Vehículo" prefWidth="210"/>
+                  <TableColumn fx:id="colReservaPeriodo" text="Periodo" prefWidth="165"/>
+                  <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
+                  <TableColumn fx:id="colTotal" text="Total estimado" prefWidth="105"/>
+                  <TableColumn fx:id="colReservaPago" text="Pago" prefWidth="100"/>
+                  <TableColumn fx:id="colReservaSaldo" text="Saldo" prefWidth="95"/>
+                </columns>
+              </TableView>
+              <Label text="El estado de pago y el saldo (con recargos por retraso) se actualizan al instante cuando registras un pago, cancelas o devuelves." styleClass="hint"/>
+            </VBox>
+          </ScrollPane>
+        </Tab>
+
+        <Tab text="Contrato PDF">
+          <HBox spacing="16">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+            <VBox styleClass="card" spacing="12" prefWidth="430" minWidth="430" maxWidth="430">
+              <Label text="Generar contrato de alquiler (PDF)" styleClass="section"/>
+              <Label text="Elige una reserva. El contrato incluye datos del cliente, foto del vehículo, cuadro económico con importe en letras, acta de entrega, cláusulas, estado de cuenta y firmas." wrapText="true" styleClass="hint"/>
+              <ComboBox fx:id="reservaContrato" promptText="Seleccionar reserva" maxWidth="Infinity"/>
+              <HBox spacing="12">
+                <StackPane fx:id="contratoFoto" minWidth="150" minHeight="100"/>
+                <Label fx:id="lblContratoResumen" wrapText="true" styleClass="resumen" HBox.hgrow="ALWAYS"/>
+              </HBox>
+              <HBox spacing="8">
+                <Button text="Generar contrato PDF" onAction="#crearContrato" styleClass="primary"/>
+                <Button text="Abrir carpeta" onAction="#abrirCarpetaContratos" styleClass="secondary"/>
+              </HBox>
+              <Label fx:id="lblCarpetaContratos" wrapText="true" styleClass="hint"/>
+            </VBox>
+
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+              <Label text="Contratos generados" styleClass="section"/>
+              <TableView fx:id="tablaContratos" VBox.vgrow="ALWAYS">
+                <placeholder><Label text="Aún no se generó ningún contrato." styleClass="hint"/></placeholder>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                <columns>
+                  <TableColumn fx:id="colCtCodigo" text="Código" prefWidth="140"/>
+                  <TableColumn fx:id="colCtCliente" text="Cliente" prefWidth="190"/>
+                  <TableColumn fx:id="colCtVehiculo" text="Vehículo" prefWidth="220"/>
+                  <TableColumn fx:id="colCtFecha" text="Firma" prefWidth="100"/>
+                  <TableColumn fx:id="colCtEstado" text="Estado reserva" prefWidth="120"/>
+                </columns>
+              </TableView>
+              <HBox spacing="8">
+                <Button text="Abrir PDF del contrato seleccionado" onAction="#abrirContratoSeleccionado" styleClass="secondary"/>
+                <Button text="Guardar copia en..." onAction="#guardarCopiaContrato" styleClass="primary"/>
+              </HBox>
+              <Label text="Doble clic en un contrato para abrirlo. «Guardar copia en...» te deja elegir dónde descargar el PDF (Descargas, escritorio, USB...)." styleClass="hint" wrapText="true"/>
+            </VBox>
+          </HBox>
+        </Tab>
+
+        <Tab text="Devolución y pagos">
+          <ScrollPane fitToWidth="true" styleClass="edge-to-edge">
+            <VBox spacing="12">
+              <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+              <Label text="Cuentas por cobrar (incluye recargos por retraso)" styleClass="section"/>
+              <HBox spacing="14" alignment="CENTER_LEFT">
+                <Label fx:id="lblPorCobrar" styleClass="total-label" wrapText="true"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <CheckBox fx:id="chkSoloDeuda" text="Solo con saldo pendiente" selected="true"/>
+              </HBox>
+              <TableView fx:id="tablaCuentas" minHeight="210" prefHeight="210">
+                <placeholder><Label text="No hay cuentas por mostrar. Desmarca «Solo con saldo pendiente» para ver todas." styleClass="hint"/></placeholder>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                <columns>
+                  <TableColumn fx:id="colCuNro" text="N°" prefWidth="55"/>
+                  <TableColumn fx:id="colCuCliente" text="Cliente" prefWidth="170"/>
+                  <TableColumn fx:id="colCuVehiculo" text="Vehículo" prefWidth="200"/>
+                  <TableColumn fx:id="colCuAlquiler" text="Alquiler" prefWidth="95"/>
+                  <TableColumn fx:id="colCuRetraso" text="Retraso" prefWidth="80"/>
+                  <TableColumn fx:id="colCuRecargo" text="Recargo" prefWidth="90"/>
+                  <TableColumn fx:id="colCuPagado" text="Pagado" prefWidth="95"/>
+                  <TableColumn fx:id="colCuSaldo" text="Saldo" prefWidth="95"/>
+                  <TableColumn fx:id="colCuEstado" text="Pago" prefWidth="100"/>
+                </columns>
+              </TableView>
+              <Label text="Haz clic en una cuenta para cargarla en «Registrar pago». El recargo por retraso se acumula día a día hasta que se devuelve el vehículo." styleClass="hint"/>
+
+              <Region minHeight="8"/>
+
+              <Label text="Devolución y cálculo de recargos" styleClass="section"/>
+              <HBox spacing="10" alignment="CENTER_LEFT">
+                <ComboBox fx:id="reservaDevolucion" promptText="Reserva pendiente de devolución" prefWidth="520"/>
+                <Label text="Fecha real de devolución" styleClass="form-label"/>
+                <DatePicker fx:id="fechaDevolucion"/>
+                <Button text="Registrar devolución" onAction="#devolver" styleClass="primary"/>
+              </HBox>
+              <Label fx:id="lblReglaRecargo" wrapText="true" styleClass="hint"/>
+              <Label fx:id="bannerRetraso" text="Selecciona una reserva para ver el cálculo del recargo." styleClass="banner" maxWidth="Infinity" wrapText="true"/>
+
+              <VBox styleClass="card" spacing="8">
+                <GridPane hgap="18" vgap="10">
+                  <columnConstraints>
+                    <ColumnConstraints minWidth="170"/>
+                    <ColumnConstraints minWidth="150" hgrow="ALWAYS"/>
+                    <ColumnConstraints minWidth="170"/>
+                    <ColumnConstraints minWidth="150" hgrow="ALWAYS"/>
+                  </columnConstraints>
+                  <Label text="Fecha prevista de devolución" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                  <Label fx:id="lblPrevista" text="-" styleClass="valor" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                  <Label text="Fecha real de devolución" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                  <Label fx:id="lblReal" text="-" styleClass="valor" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                  <Label text="Días de retraso" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                  <Label fx:id="lblDias" text="-" styleClass="valor" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                  <Label text="Tarifa diaria" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                  <Label fx:id="lblTarifaDia" text="-" styleClass="valor" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                  <Label text="Recargo por cada día" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                  <Label fx:id="lblRecargoDia" text="-" styleClass="valor" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                  <Label text="CARGO ADICIONAL" styleClass="form-label" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                  <Label fx:id="lblRecargo" text="-" styleClass="big-number" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                  <Separator GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="4"/>
+
+                  <Label text="Total del alquiler" styleClass="form-label" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                  <Label fx:id="lblTotalAlquiler" text="-" styleClass="valor" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                  <Label text="Ya pagado" styleClass="form-label" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+                  <Label fx:id="lblPagado" text="-" styleClass="valor" GridPane.rowIndex="4" GridPane.columnIndex="3"/>
+
+                  <Label text="SALDO POR COBRAR" styleClass="form-label" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                  <Label fx:id="lblSaldoDev" text="-" styleClass="total-label" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                </GridPane>
+              </VBox>
+
+              <Region minHeight="8"/>
+
+              <Label text="Registrar pago" styleClass="section"/>
+              <VBox styleClass="card" spacing="10">
+                <GridPane hgap="10" vgap="8">
+                  <columnConstraints>
+                    <ColumnConstraints minWidth="70"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints minWidth="70"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                  </columnConstraints>
+                  <Label text="Reserva" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                  <ComboBox fx:id="reservaPago" promptText="Seleccionar reserva" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                  <Label text="Monto (S/)" styleClass="form-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                  <TextField fx:id="montoPago" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                  <Label text="Método" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                  <ComboBox fx:id="metodoPago" maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                  <Label text="Concepto" styleClass="form-label" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                  <ComboBox fx:id="conceptoPago" editable="true" promptText="Adelanto, saldo, recargo..." maxWidth="Infinity" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                </GridPane>
+                <HBox spacing="14" alignment="CENTER_LEFT">
+                  <Label fx:id="lblSaldoPago" text="Saldo pendiente: -" styleClass="total-label"/>
+                  <Region HBox.hgrow="ALWAYS"/>
+                  <Button text="Registrar pago" onAction="#registrarPago" styleClass="primary"/>
+                </HBox>
+                <Label fx:id="lblDetalleSaldo" styleClass="hint" wrapText="true"/>
+              </VBox>
+
+              <Label text="Historial de pagos" styleClass="section"/>
+              <TableView fx:id="tablaPagos" minHeight="220" prefHeight="220">
+                <placeholder><Label text="Todavía no se registraron pagos." styleClass="hint"/></placeholder>
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                <columns>
+                  <TableColumn fx:id="colPagoFecha" text="Fecha" prefWidth="110"/>
+                  <TableColumn fx:id="colPagoReserva" text="Reserva" prefWidth="280"/>
+                  <TableColumn fx:id="colPagoMonto" text="Monto" prefWidth="120"/>
+                  <TableColumn fx:id="colPagoMetodo" text="Método" prefWidth="130"/>
+                  <TableColumn fx:id="colPagoConcepto" text="Concepto" prefWidth="260"/>
+                </columns>
+              </TableView>
+            </VBox>
+          </ScrollPane>
+        </Tab>
+
+        <Tab text="Notificaciones">
+          <fx:include source="notificaciones-view.fxml"/>
+        </Tab>
+
+        <Tab text="Reportes">
+          <fx:include source="reportes-view.fxml"/>
+        </Tab>
+
+        <Tab text="Mantenimiento">
+          <fx:include source="mantenimiento-view.fxml"/>
+        </Tab>
+
+        <Tab text="Respaldos">
+          <fx:include source="respaldo-view.fxml"/>
+        </Tab>
+
+      </tabs>
+    </TabPane>
+    </center>
+   </BorderPane>
+  </center>
+
+  <bottom>
+    <HBox styleClass="status">
+      <padding><Insets top="10" right="18" bottom="10" left="18"/></padding>
+      <Label fx:id="estado" text="Listo. Registra vehículos, motos y clientes para empezar." wrapText="true"/>
+    </HBox>
+  </bottom>
+</BorderPane>
